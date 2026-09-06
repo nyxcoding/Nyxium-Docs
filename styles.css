@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+
+    /* Light mode */
+    background: #f5f5f5;
+    color: #111;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.content {
+    text-align: center;
+}
+
+h1 {
+    margin: 0 0 20px;
+    color: #111;
+
+    transition: color 0.3s ease;
+}
+
+.download {
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    background: #333;
+    color: #fff;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.download:hover {
+    background: #555;
+}
+
+.toggle {
+    padding: 10px 15px;
+
+    background: #333;
+    color: #fff;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.toggle:hover {
+    background: #555;
+}
+
+body.dark {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+body.dark .sidebar {
+    background: #2b2b2b;
+    color: #fff;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark h1 {
+    color: #fff;
+}
+
+body.dark .download {
+    background: #fff;
+    color: #111;
+}
+
+body.dark .download:hover {
+    background: #ddd;
+}
+
+body.dark .toggle {
+    background: #fff;
+    color: #111;
+}
+
+body.dark .toggle:hover {
+    background: #ddd;
+}
+
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 70px;
+    height: 100vh;
+
+    padding: 15px;
+
+    background: #e5e5e5;
+
+    transition: background-color 0.3s ease;
+}
+
+#sidebar .toggle {
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+
+    font-size: 18px;
+}
+
+body.dark #sidebar {
+    background: #2b2b2b
+}
+
+section {
+    margin-left: 90px;
+    margin-right: 30px;
+    max-width: 800px;
+}
+
+nav, h1, section {
+    margin-left: 90px;
+}
+.discord {
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    background: #333;
+    color: #fff;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.discord:hover {
+    background: #555;
+}
+body.dark .discord {
+    background: #fff;
+    color: #111;
+}
+
+body.dark .discord:hover {
+    background: #ddd;
+}
+
+h4 {
+	margin: 0 0 16px;
+	color: #111;
+	
+	transition: color 0.3s ease
+}
+
+body.dark h4 {
+	color: #fff
+}

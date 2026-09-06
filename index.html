@@ -1,0 +1,153 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>Nyxium Documentation</title>
+    </head>
+    <body>
+        <nav>
+            <button class="download" id="download">Download 🌙</button>
+            <button class="discord" id="discord">Discord 🌙</button>
+        </nav>
+        <h1>Nyxium Documentation</h1>
+        <div id="sidebar">
+            <button id="toggle">🌙</button>
+        </div>
+        <section id="start">
+            <h2>Get started with Nyxium!</h2>
+            <h4>Setup</h4>
+            <p>Begin by downloading Nyxium by clicking the download button. This will install Nyxium on to your system and add it to PATH</p>
+            <p>Next, open your IDE of choice, and create a file with the .nyx extension.</p>
+            <p>Finally, enter your Nyxium code into the file and run</p>
+            <code>nyxium file.nyx</code>
+
+        </section>
+
+        <section id="syntax">
+            <h2>Nyxium Syntax</h2>
+
+            <h3>Output</h3>
+            <p>Use <code>say()</code> to output text into the console.</p>
+
+            <pre><code>say("Hello from Nyxium")</code></pre>
+
+            <h3>Variables</h3>
+            <p>Create variables using <code>var</code>.</p>
+
+            <pre><code>var x = 5<br>say(x)</code></pre>
+
+            <h3>If</h3>
+            <p>As of Nyxium v1.0, Nyxium only supports <code>if</code>.</p>
+
+            <pre><code>var x = 10<br>if x == 10<br>  say("X is 10!")<br>end</code></pre>
+
+	        <h4>Logical Operators</h4>
+            <code>==, !=, >, >=, <, <= </code>
+
+            <h3>Loop</h3>
+            <p>Nyxium provides basic loop support, with <code>loop int</code>.</p>
+
+            <pre><code>loop 5<br>   say("Nyxium")<br>end </code></pre>
+
+            <h3>Comments</h3>
+            <p>Nyxium has support for one-line comments as of version 1.0.0.</p>
+
+            <pre><code>@ This is a Nyxium comment</code></pre>
+
+            <h3>Night</h3>
+            <p>Functions are made with the <code>night</code> syntax.</p>
+
+            <pre><code>night hello{\n    say("Hello!")\n}</code></pre>
+        </section>
+
+        <section id="imports">
+            <h2>Imports</h2>
+            <h3>Math</h3>
+
+            <h4>Add</h4>
+            <p>The add function in Nyxium is exclusive to the math module. This adds 2 integers together</p>
+            <pre><code>get math\nadd(1, 5)</code></pre>
+
+            <h4>Subtract</h4>
+            <p>The subtract function in Nyxium is also exclusive to the math module. This subtracts 2 integers together</p>
+
+            <pre><code>get math\nsubtract(5, 1)</code></pre>
+
+            <h4>Multiply</h4>
+            <p>The multiply function in Nyxium is yet again, exclusive to the math module. This multiplies 2 integers together</p>
+
+            <pre><code>get math\n multiply(4, 5)</code></pre>
+
+            <h4>Divide</h4>
+            <p>The divide function is the last function (as of v1.2.5) inside the math module. This divides 2 integers together</p>
+
+            <pre><code>get math\n divide(20, 5)</code></pre>
+
+            <h3>Wait</h3>
+            <p>The wait function is the only function in this module. This waits for the ammount of seconds you want.</p>
+
+            <pre><code>get wait\n wait(12)</code></pre>
+
+            <h3>Random</h3>
+            <p>As of version 1.2.5, randint is the only function in the random module.</p>
+
+            <pre><code>get random\nrandint(1, 10)</code></pre>
+        </section>
+
+        <section id="errors">
+            <h2>Nyxium errors</h2>
+
+            <h3>[module name] not found.</h3>
+            <p>This simply means you haven't used the get function to initilise the module</p>
+
+            <pre><code>Nyxium line 5: Wait module not found, try using `get wait`</code></pre>
+
+            <h3>File not found.</h3>
+            <p>You have likely typed the name wrong, re-run the command and ensure its the correct name</p>
+
+            <pre><code>Error: Nyxium file not found</code></pre>
+
+            <h3>Unknown Command</h3>
+            <p>You may have found a bug or typed a function wrong.</p>
+
+            <pre><code>Unknown command: Line 6</code></pre>
+
+            <h3>Library disabled</h3>
+            <p>This means you have used the lose function and the library was already disabled.</p>
+
+            <pre><code>Nyxium line 15: Maths library already disabled!</code></pre>
+        </section>
+
+        <script>
+            const download = document.getElementById("download")
+
+            const toggle = document.getElementById("toggle")
+
+            const discord = document.getElementById("discord")
+
+            download.addEventListener("click", () => {
+                const link = document.createElement("a")
+
+                link.href = "nyxium/nyxium.exe"
+                link.download = "nyxium.exe"
+
+                link.click()
+                alert("Downloading Nyxium.")
+            })
+
+            toggle.addEventListener("click", () => {
+                document.body.classList.toggle("dark");
+
+                if (document.body.classList.contains("dark")) {
+                    toggle.innerHTML = "☀️";
+                } else {
+                    toggle.innerHTML = "🌙";
+                }
+            });
+
+            discord.addEventListener("click", () => {
+                window.open("https://discord.gg/7TY5SnmXU3", "_blank")
+            })
+
+        </script>
+    </body>
+</html>
