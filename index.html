@@ -4,6 +4,8 @@
         <title>Nyxium Documentation</title>
     </head>
     <body>
+        
+        <footer id="footer">Nyxium | Nyx Coding</footer>
         <nav>
             <button class="download" id="download">Download 🌙</button>
             <button class="discord" id="discord">Discord 🌙</button>
@@ -56,7 +58,12 @@
             <h3>Night</h3>
             <p>Functions are made with the <code>night</code> syntax.</p>
 
-            <pre><code>night hello{\n    say("Hello!")\n}</code></pre>
+            <pre><code>night hello{<br>    say("Hello!")\n}</code></pre>
+
+            <h3>Lose</h3>
+            <p>The lose function is what makes Nyxium unique. It unloads a function.</p>
+
+            <pre><code>get math<br>lose math</code></pre>
         </section>
 
         <section id="imports">
@@ -65,32 +72,32 @@
 
             <h4>Add</h4>
             <p>The add function in Nyxium is exclusive to the math module. This adds 2 integers together</p>
-            <pre><code>get math\nadd(1, 5)</code></pre>
+            <pre><code>get math<br>add(1, 5)</code></pre>
 
             <h4>Subtract</h4>
             <p>The subtract function in Nyxium is also exclusive to the math module. This subtracts 2 integers together</p>
 
-            <pre><code>get math\nsubtract(5, 1)</code></pre>
+            <pre><code>get math<br>subtract(5, 1)</code></pre>
 
             <h4>Multiply</h4>
             <p>The multiply function in Nyxium is yet again, exclusive to the math module. This multiplies 2 integers together</p>
 
-            <pre><code>get math\n multiply(4, 5)</code></pre>
+            <pre><code>get math<br>multiply(4, 5)</code></pre>
 
             <h4>Divide</h4>
             <p>The divide function is the last function (as of v1.2.5) inside the math module. This divides 2 integers together</p>
 
-            <pre><code>get math\n divide(20, 5)</code></pre>
+            <pre><code>get math<br>divide(20, 5)</code></pre>
 
             <h3>Wait</h3>
             <p>The wait function is the only function in this module. This waits for the ammount of seconds you want.</p>
 
-            <pre><code>get wait\n wait(12)</code></pre>
+            <pre><code>get wait<br>wait(12)</code></pre>
 
             <h3>Random</h3>
             <p>As of version 1.2.5, randint is the only function in the random module.</p>
 
-            <pre><code>get random\nrandint(1, 10)</code></pre>
+            <pre><code>get random<br>randint(1, 10)</code></pre>
         </section>
 
         <section id="errors">
@@ -124,6 +131,8 @@
 
             const discord = document.getElementById("discord")
 
+            const footer = document.getElementById("footer")
+
             download.addEventListener("click", () => {
                 const link = document.createElement("a")
 
@@ -132,6 +141,12 @@
 
                 link.click()
                 alert("Downloading Nyxium.")
+            })
+
+            footer.addEventListener("click", () => {
+                if (footer.style.display !== "none"){
+                    footer.style.display = "none"
+                }
             })
 
             toggle.addEventListener("click", () => {
