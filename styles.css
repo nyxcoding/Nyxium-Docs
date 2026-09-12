@@ -2,12 +2,22 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: Arial, sans-serif, 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI';
 
-    /* Light mode */
+    font-family:
+        Arial,
+        "Segoe UI",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+
     background: #f5f5f5;
     color: #111;
 
@@ -16,47 +26,41 @@ body {
         color 0.3s ease;
 }
 
-.content {
-    text-align: center;
-}
+/* =========================
+   Sidebar
+   ========================= */
 
-h1 {
-    margin: 0 0 20px;
-    color: #111;
+#sidebar {
+    position: fixed;
 
-    transition: color 0.3s ease;
-}
+    left: 0;
+    top: 0;
 
-.download {
-    display: inline-block;
+    width: 230px;
+    height: 100vh;
 
-    padding: 10px 20px;
+    padding: 20px;
 
-    background: #333;
-    color: #fff;
+    background: #e5e5e5;
 
-    border: none;
-    border-radius: 5px;
-
-    cursor: pointer;
+    border-right: 1px solid #d0d0d0;
 
     transition:
         background-color 0.3s ease,
-        color 0.3s ease;
+        border-color 0.3s ease;
 }
 
-.download:hover {
-    background: #555;
-}
+#toggle {
+    width: 40px;
+    height: 40px;
 
-.toggle {
-    padding: 10px 15px;
+    padding: 0;
 
     background: #333;
     color: #fff;
 
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
 
     cursor: pointer;
 
@@ -64,131 +68,394 @@ h1 {
 
     transition:
         background-color 0.3s ease,
-        color 0.3s ease;
+        color 0.3s ease,
+        transform 0.15s ease;
 }
 
-.toggle:hover {
+#toggle:hover {
     background: #555;
+    transform: scale(1.05);
 }
+
+.sidebar-nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 25px;
+}
+
+.sidebar-nav a {
+    padding: 9px 10px;
+
+    color: #333;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+    background: #d5d5d5;
+    color: #000;
+}
+
+/* =========================
+   Main content
+   ========================= */
+
+main {
+    margin-left: 230px;
+
+    padding: 25px 40px 90px;
+
+    max-width: 1100px;
+}
+
+.top-nav {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 35px;
+}
+
+.top-nav button {
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #333;
+    color: #fff;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease;
+}
+
+.top-nav button:hover {
+    background: #555;
+    transform: translateY(-1px);
+}
+
+header {
+    margin-bottom: 50px;
+}
+
+h1 {
+    margin: 0 0 10px;
+
+    font-size: 42px;
+
+    color: #111;
+
+    transition: color 0.3s ease;
+}
+
+.subtitle {
+    margin: 0;
+
+    color: #666;
+
+    font-size: 18px;
+}
+
+/* =========================
+   Sections
+   ========================= */
+
+section {
+    max-width: 850px;
+
+    margin-bottom: 70px;
+
+    scroll-margin-top: 30px;
+}
+
+h2 {
+    margin-bottom: 15px;
+
+    font-size: 30px;
+}
+
+h3 {
+    margin-top: 35px;
+    margin-bottom: 10px;
+
+    font-size: 22px;
+}
+
+h4 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+    font-size: 17px;
+}
+
+p {
+    line-height: 1.7;
+}
+
+strong {
+    font-weight: 700;
+}
+
+/* =========================
+   Code
+   ========================= */
+
+code {
+    padding: 2px 5px;
+
+    background: #e7e7e7;
+
+    border-radius: 4px;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+}
+
+pre {
+    margin: 15px 0;
+
+    padding: 18px;
+
+    overflow-x: auto;
+
+    background: #1e1e1e;
+    color: #f5f5f5;
+
+    border-radius: 8px;
+
+    line-height: 1.6;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+pre code {
+    padding: 0;
+
+    background: transparent;
+
+    color: inherit;
+}
+
+/* =========================
+   Operators
+   ========================= */
+
+.operator-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+.operator-list code {
+    padding: 7px 11px;
+
+    background: #e2e2e2;
+
+    border-radius: 6px;
+}
+
+/* =========================
+   Notes / Warnings
+   ========================= */
+
+.note,
+.warning,
+.version {
+    margin: 20px 0;
+
+    padding: 14px 16px;
+
+    border-radius: 7px;
+
+    line-height: 1.6;
+}
+
+.note {
+    background: #e8e8e8;
+    border-left: 4px solid #555;
+}
+
+.warning {
+    background: #f1e6d4;
+    border-left: 4px solid #a66a00;
+}
+
+.version {
+    background: #e5e5e5;
+    border-left: 4px solid #666;
+
+    font-size: 14px;
+}
+
+/* =========================
+   Footer
+   ========================= */
+
+footer {
+    position: fixed;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    padding: 10px 15px;
+
+    background: #003a00;
+
+    color: #fff;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    z-index: 100;
+}
+
+/* =========================
+   Dark mode
+   ========================= */
 
 body.dark {
     background: #1e1e1e;
-    color: #fff;
+    color: #f5f5f5;
 }
 
-body.dark .sidebar {
+body.dark #sidebar {
     background: #2b2b2b;
-    color: #fff;
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border-right-color: #444;
+}
+
+body.dark #toggle {
+    background: #fff;
+    color: #111;
+}
+
+body.dark #toggle:hover {
+    background: #ddd;
+}
+
+body.dark .sidebar-nav a {
+    color: #ddd;
+}
+
+body.dark .sidebar-nav a:hover {
+    background: #3a3a3a;
+    color: #fff;
 }
 
 body.dark h1 {
     color: #fff;
 }
 
-body.dark .download {
+body.dark .subtitle {
+    color: #aaa;
+}
+
+body.dark .top-nav button {
     background: #fff;
     color: #111;
 }
 
-body.dark .download:hover {
+body.dark .top-nav button:hover {
     background: #ddd;
 }
 
-body.dark .toggle {
-    background: #fff;
-    color: #111;
-}
-
-body.dark .toggle:hover {
-    background: #ddd;
-}
-
-#sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-
-    width: 70px;
-    height: 100vh;
-
-    padding: 15px;
-
-    background: #e5e5e5;
-
-    transition: background-color 0.3s ease;
-}
-
-#sidebar .toggle {
-    width: 40px;
-    height: 40px;
-
-    padding: 0;
-
-    font-size: 18px;
-}
-
-body.dark #sidebar {
-    background: #2b2b2b
-}
-
-section {
-    margin-left: 90px;
-    margin-right: 30px;
-    max-width: 800px;
-}
-
-nav, h1, section {
-    margin-left: 90px;
-}
-.discord {
-    display: inline-block;
-
-    padding: 10px 20px;
-
+body.dark code {
     background: #333;
     color: #fff;
-
-    border: none;
-    border-radius: 5px;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease;
 }
 
-.discord:hover {
-    background: #555;
-}
-body.dark .discord {
-    background: #fff;
-    color: #111;
+body.dark pre {
+    background: #111;
 }
 
-body.dark .discord:hover {
-    background: #ddd;
+body.dark .operator-list code {
+    background: #333;
 }
 
-h4 {
-	margin: 0 0 16px;
-	color: #111;
-	
-	transition: color 0.3s ease
+body.dark .note {
+    background: #2d2d2d;
+    border-left-color: #aaa;
 }
 
-body.dark h4 {
-	color: #fff
+body.dark .warning {
+    background: #3a3023;
+    border-left-color: #c18a35;
 }
-footer {
-    background-color: #003a00;
-    transition: color 0.3s ease;
-    align-items: center;
-    margin: 0 0 16px;
-    color: white;
-    bottom: 0;
-    position: fixed;
-    margin-top: auto;
+
+body.dark .version {
+    background: #2d2d2d;
+    border-left-color: #aaa;
+}
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 750px) {
+
+    #sidebar {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        padding: 12px;
+
+        border-right: none;
+        border-bottom: 1px solid #d0d0d0;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+
+        flex-wrap: wrap;
+
+        margin-top: 12px;
+    }
+
+    main {
+        margin-left: 0;
+
+        padding: 20px 20px 80px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    section {
+        margin-bottom: 50px;
+    }
+
+    footer {
+        font-size: 13px;
+    }
 }
