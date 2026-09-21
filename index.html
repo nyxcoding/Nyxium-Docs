@@ -1,526 +1,792 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Nyxium Documentation</title>
+<html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="styles.css">
+<title>Nyxium Documentation</title>
+
+<link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
-    <!-- Sidebar -->
-    <aside id="sidebar">
-        <button id="toggle" aria-label="Toggle dark mode">🌙</button>
+<!-- Sidebar -->
+<aside id="sidebar">
+    <button id="toggle" aria-label="Toggle dark mode">🌙</button>
 
-        <nav class="sidebar-nav">
-            <a href="#start">Getting Started</a>
-            <a href="#syntax">Syntax</a>
-            <a href="#imports">Modules</a>
-            <a href="#files">File I/O</a>
-            <a href="#errors">Errors</a>
-        </nav>
-    </aside>
+    <nav class="sidebar-nav">
+        <a href="#start">Getting Started</a>
+        <a href="#syntax">Syntax</a>
+        <a href="#imports">Modules</a>
+        <a href="#files">File I/O</a>
+        <a href="#discords">Discord</a>
+        <a href="#errors">Errors</a>
+        <a href="#changelog">Changelog</a>
+    </nav>
+</aside>
 
-    <!-- Main content -->
-    <main>
+<!-- Main content -->
+<main>
 
-        <nav class="top-nav">
-            <button class="download" id="download">
-                Download 🌙
-            </button>
+    <!-- Top navigation -->
+    <nav class="top-nav">
+        <button class="download" id="download">
+            Download 🌙
+        </button>
 
-            <button class="discord" id="discord">
-                Discord 🌙
-            </button>
-        </nav>
+        <button class="discord" id="discord">
+            Discord 🌙
+        </button>
+    </nav>
 
-        <header>
-            <h1>Nyxium Documentation</h1>
+    <!-- Header -->
+    <header>
+        <h1>Nyxium Documentation</h1>
 
-            <p class="subtitle">
-                The official documentation for the Nyxium programming language.
-            </p>
-        </header>
+        <p class="subtitle">
+            The official documentation for the Nyxium programming language.
+        </p>
 
-        <!-- Getting Started -->
-        <section id="start">
-            <h2>Get started with Nyxium!</h2>
+        <span class="version-badge">v1.3</span>
+    </header>
 
-            <p>
-                Nyxium is a lightweight programming language designed to be
-                simple to write, easy to understand, and capable of interacting
-                with your system.
-            </p>
+    <!-- Getting Started -->
+    <section id="start">
+        <h2>Get started with Nyxium!</h2>
 
-            <h3>Setup</h3>
+        <p>
+            Nyxium is a lightweight programming language designed to be
+            simple to write, easy to understand, and capable of interacting
+            with your system.
+        </p>
 
-            <p>
-                Begin by downloading Nyxium using the
-                <strong>Download</strong> button at the top of this page.
-                The installer will install Nyxium and add it to your system
-                <code>PATH</code>.
-            </p>
+        <h3>Setup</h3>
 
-            <p>
-                Once Nyxium is installed, open your IDE or text editor of
-                choice and create a file ending in <code>.nyx</code>.
-            </p>
+        <p>
+            Begin by downloading Nyxium using the
+            <strong>Download</strong> button at the top of this page.
+            The installer will install Nyxium and add it to your system
+            <code>PATH</code>.
+        </p>
 
-            <p>
-                For example:
-            </p>
+        <p>
+            Once Nyxium is installed, open your IDE or text editor of
+            choice and create a file ending in <code>.nyx</code>.
+        </p>
 
-            <pre><code>program.nyx</code></pre>
+        <p>
+            For example:
+        </p>
 
-            <p>
-                Write your Nyxium code inside the file, then run it from a
-                terminal:
-            </p>
+        <pre><code>program.nyx</code></pre>
 
-            <pre><code>nyxium program.nyx</code></pre>
+        <p>
+            Write your Nyxium code inside the file, then run it from a
+            terminal:
+        </p>
 
-            <div class="note">
-                <strong>Tip:</strong>
-                Nyxium files use the <code>.nyx</code> extension.
-            </div>
-        </section>
+        <pre><code>nyxium program.nyx</code></pre>
 
-        <!-- Syntax -->
-        <section id="syntax">
-            <h2>Nyxium Syntax</h2>
+        <div class="note">
+            <strong>Tip:</strong>
+            Nyxium files use the <code>.nyx</code> extension.
+        </div>
+    </section>
 
-            <p>
-                This section covers the core syntax currently available in
-                Nyxium.
-            </p>
+    <!-- Syntax -->
+    <section id="syntax">
+        <h2>Nyxium Syntax</h2>
 
-            <!-- Output -->
-            <h3>Output</h3>
+        <p>
+            This section covers the core syntax currently available in
+            Nyxium.
+        </p>
 
-            <p>
-                Use <code>say()</code> to print information to the console.
-            </p>
+        <!-- Output -->
+        <h3>Output</h3>
 
-            <pre><code>say("Hello from Nyxium")</code></pre>
+        <p>
+            Use <code>say()</code> to print information to the console.
+        </p>
 
-            <p>
-                Variables can also be passed to <code>say()</code>.
-            </p>
+        <pre><code>say("Hello from Nyxium")</code></pre>
 
-            <pre><code>var name = "Nyxium"
+        <p>
+            Variables can also be passed to <code>say()</code>.
+        </p>
+
+        <pre><code>var name = "Nyxium"
+
 say(name)</code></pre>
 
-            <!-- Variables -->
-            <h3>Variables</h3>
+        <!-- Input -->
+        <h3>Input</h3>
 
-            <p>
-                Variables are created using the <code>var</code> keyword.
-            </p>
+        <p>
+            The <code>input</code> command allows a program to receive
+            information from the user.
+        </p>
 
-            <pre><code>var x = 5
+        <pre><code>input name</code></pre>
+
+        <p>
+            The value entered by the user can then be used by the program.
+        </p>
+
+        <pre><code>input name
+
+say(name)</code></pre>
+
+        <!-- Variables -->
+        <h3>Variables</h3>
+
+        <p>
+            Variables are created using the <code>var</code> keyword.
+        </p>
+
+        <pre><code>var x = 5
+
 say(x)</code></pre>
 
-            <p>
-                Variables can contain values such as numbers and strings.
-            </p>
+        <p>
+            Variables can contain values such as numbers and strings.
+        </p>
 
-            <!-- If -->
-            <h3>If statements</h3>
+        <h4>Changing variables</h4>
 
-            <p>
-                Nyxium uses <code>if</code> statements to conditionally
-                execute code.
-            </p>
+        <p>
+            Existing variables can be given a new value.
+        </p>
 
-            <pre><code>var x = 10
+        <pre><code>var x = 5
+
+var x = x + 1
+
+say(x)</code></pre>
+
+        <!-- If -->
+        <h3>If statements</h3>
+
+        <p>
+            Nyxium uses <code>if</code> statements to conditionally
+            execute code.
+        </p>
+
+        <pre><code>var x = 10
 
 if x == 10
-    say("X is 10!")
+say("X is 10!")
 end</code></pre>
 
-            <p>
-                An <code>if</code> block begins with <code>if</code> and ends
-                with <code>end</code>.
-            </p>
+        <p>
+            An <code>if</code> block begins with <code>if</code> and ends
+            with <code>end</code>.
+        </p>
 
-            <h4>Comparison operators</h4>
+        <h4>Else</h4>
 
-            <p>
-                Nyxium currently supports the following comparison operators:
-            </p>
+        <p>
+            Use <code>else</code> when code should run if the condition
+            is not true.
+        </p>
 
-            <div class="operator-list">
-                <code>==</code>
-                <code>!=</code>
-                <code>&gt;</code>
-                <code>&gt;=</code>
-                <code>&lt;</code>
-                <code>&lt;=</code>
-            </div>
+        <pre><code>var x = 5
 
-            <!-- Loops -->
-            <h3>Loops</h3>
-
-            <p>
-                Nyxium provides basic loop support using
-                <code>loop</code>.
-            </p>
-
-            <p>
-                A loop runs its contents the specified number of times.
-            </p>
-
-            <pre><code>loop 5
-    say("Nyxium")
+if x == 10
+say("X is 10!")
+else
+say("X is not 10!")
 end</code></pre>
 
-            <p>
-                The example above prints <code>Nyxium</code> five times.
-            </p>
+        <h4>Elsif</h4>
 
-            <!-- Comments -->
-            <h3>Comments</h3>
+        <p>
+            Use <code>elsif</code> to check another condition when the
+            previous condition was not true.
+        </p>
 
-            <p>
-                Nyxium supports one-line comments using the
-                <code>@</code> character.
-            </p>
+        <pre><code>var x = 5
 
-            <pre><code>@ This is a Nyxium comment
+if x == 10
+say("X is 10!")
+elsif x == 5
+say("X is 5!")
+else
+say("X is something else!")
+end</code></pre>
+
+        <h4>Comparison operators</h4>
+
+        <p>
+            Nyxium currently supports the following comparison operators:
+        </p>
+
+        <div class="operator-list">
+            <code>==</code>
+            <code>!=</code>
+            <code>&gt;</code>
+            <code>&gt;=</code>
+            <code>&lt;</code>
+            <code>&lt;=</code>
+        </div>
+
+        <!-- Loops -->
+        <h3>Loops</h3>
+
+        <p>
+            Nyxium provides basic loop support using
+            <code>loop</code>.
+        </p>
+
+        <p>
+            A loop runs its contents the specified number of times.
+        </p>
+
+        <pre><code>loop 5
+say("Nyxium")
+
+end</code></pre>
+
+        <p>
+            The example above prints <code>Nyxium</code> five times.
+        </p>
+
+        <!-- Comments -->
+        <h3>Comments</h3>
+
+        <p>
+            Nyxium supports one-line comments using the
+            <code>@</code> character.
+        </p>
+
+        <pre><code>@ This is a Nyxium comment
 
 say("Hello!")</code></pre>
 
-            <p>
-                Anything after <code>@</code> on that line is treated as a
-                comment.
-            </p>
+        <p>
+            Anything after <code>@</code> on that line is treated as a
+            comment.
+        </p>
 
-            <!-- Night -->
-            <h3>Night</h3>
+        <!-- Night -->
+        <h3>Night</h3>
 
-            <p>
-                <code>night</code> is used to define functions in Nyxium.
-            </p>
+        <p>
+            <code>night</code> is used to define functions in Nyxium.
+        </p>
 
-            <pre><code>night hello {
-    say("Hello!")
+        <pre><code>night hello {
+say("Hello!")
+
 }</code></pre>
 
-            <p>
-                Functions allow reusable pieces of code to be grouped
-                together.
-            </p>
+        <p>
+            Functions allow reusable pieces of code to be grouped
+            together.
+        </p>
 
-            <div class="note">
-                <strong>Note:</strong>
-                Function syntax and calling conventions may change as the
-                Nyxium language develops.
-            </div>
+        <div class="note">
+            <strong>Note:</strong>
+            Function syntax and calling conventions may change as the
+            Nyxium language develops.
+        </div>
 
-            <!-- Lose -->
-            <h3>Lose</h3>
+        <!-- Get -->
+        <h3>Get</h3>
 
-            <p>
-                <code>lose</code> disables an imported module.
-                This allows a module to be unloaded after it is no longer
-                required.
-            </p>
+        <p>
+            <code>get</code> loads a Nyxium module so that its functions
+            can be used.
+        </p>
 
-            <pre><code>get math
+        <pre><code>get math</code></pre>
+
+        <p>
+            Modules must be loaded before their functions can be used.
+        </p>
+
+        <!-- Lose -->
+        <h3>Lose</h3>
+
+        <p>
+            <code>lose</code> disables an imported module.
+            This allows a module to be unloaded after it is no longer
+            required.
+        </p>
+
+        <pre><code>get math
 
 lose math</code></pre>
 
-            <p>
-                If a module has already been disabled, Nyxium will report
-                that the library is already disabled.
-            </p>
-        </section>
+        <p>
+            If a module has already been disabled, Nyxium will report
+            that the library is already disabled.
+        </p>
+    </section>
 
-        <!-- Modules -->
-        <section id="imports">
-            <h2>Modules</h2>
+    <!-- Modules -->
+    <section id="imports">
+        <h2>Modules</h2>
 
-            <p>
-                Nyxium uses the <code>get</code> command to load modules.
-            </p>
+        <p>
+            Nyxium uses the <code>get</code> command to load modules.
+        </p>
 
-            <pre><code>get math</code></pre>
+        <pre><code>get math</code></pre>
 
-            <p>
-                Once a module has been loaded, its available functions can
-                be used.
-            </p>
+        <p>
+            Once a module has been loaded, its available functions can
+            be used.
+        </p>
 
-            <!-- Math -->
-            <h3>Math</h3>
+        <!-- Math -->
+        <h3>Math</h3>
 
-            <p>
-                The <code>math</code> module provides basic mathematical
-                operations.
-            </p>
+        <p>
+            The <code>math</code> module provides basic mathematical
+            operations.
+        </p>
 
-            <h4>Add</h4>
+        <h4>Add</h4>
 
-            <p>
-                <code>add()</code> adds two numbers together.
-            </p>
+        <p>
+            <code>add()</code> adds two numbers together.
+        </p>
 
-            <pre><code>get math
+        <pre><code>get math
 
 add(1, 5)</code></pre>
 
-            <h4>Subtract</h4>
+        <h4>Subtract</h4>
 
-            <p>
-                <code>subtract()</code> subtracts the second number from the
-                first.
-            </p>
+        <p>
+            <code>subtract()</code> subtracts the second number from the
+            first.
+        </p>
 
-            <pre><code>get math
+        <pre><code>get math
 
 subtract(5, 1)</code></pre>
 
-            <h4>Multiply</h4>
+        <h4>Multiply</h4>
 
-            <p>
-                <code>multiply()</code> multiplies two numbers together.
-            </p>
+        <p>
+            <code>multiply()</code> multiplies two numbers together.
+        </p>
 
-            <pre><code>get math
+        <pre><code>get math
 
 multiply(4, 5)</code></pre>
 
-            <h4>Divide</h4>
+        <h4>Divide</h4>
 
-            <p>
-                <code>divide()</code> divides the first number by the second.
-            </p>
+        <p>
+            <code>divide()</code> divides the first number by the second.
+        </p>
 
-            <pre><code>get math
+        <pre><code>get math
 
 divide(20, 5)</code></pre>
 
-            <div class="version">
-                Available in the math module as of v1.2.5.
-            </div>
+        <div class="version">
+            Available in the math module as of v1.2.5.
+        </div>
 
-            <!-- Wait -->
-            <h3>Wait</h3>
+        <!-- Wait -->
+        <h3>Wait</h3>
 
-            <p>
-                The <code>wait</code> module provides a function for pausing
-                program execution for a specified number of seconds.
-            </p>
+        <p>
+            The <code>wait</code> module provides a function for pausing
+            program execution for a specified number of seconds.
+        </p>
 
-            <pre><code>get wait
+        <pre><code>get wait
 
 wait(12)</code></pre>
 
-            <p>
-                The example above pauses execution for twelve seconds.
-            </p>
+        <p>
+            The example above pauses execution for twelve seconds.
+        </p>
 
-            <!-- Random -->
-            <h3>Random</h3>
+        <!-- Random -->
+        <h3>Random</h3>
 
-            <p>
-                The <code>random</code> module provides random-number
-                functionality.
-            </p>
+        <p>
+            The <code>random</code> module provides random-number
+            functionality.
+        </p>
 
-            <h4>randint</h4>
+        <h4>randint</h4>
 
-            <p>
-                <code>randint()</code> generates a random integer between
-                the two supplied values.
-            </p>
+        <p>
+            <code>randint()</code> generates a random integer between
+            the two supplied values.
+        </p>
 
-            <pre><code>get random
+        <pre><code>get random
 
 randint(1, 10)</code></pre>
 
-            <div class="version">
-                <code>randint()</code> is currently the only function in the
-                random module.
-            </div>
-        </section>
+        <div class="version">
+            <code>randint()</code> is currently the only function in the
+            random module.
+        </div>
+    </section>
 
-        <!-- File I/O -->
-        <section id="files">
-            <h2>Nyxium File I/O</h2>
+    <!-- File I/O -->
+    <section id="files">
+        <h2>Nyxium File I/O</h2>
 
-            <p>
-                Nyxium provides file input and output functionality, allowing
-                programs to create and modify files.
-            </p>
+        <p>
+            Nyxium provides file input and output functionality, allowing
+            programs to create and modify files.
+        </p>
 
-            <!-- Open -->
-            <h3>Open</h3>
+        <!-- Open -->
+        <h3>Open</h3>
 
-            <p>
-                The <code>open()</code> function creates or opens a file for
-                use by subsequent file operations.
-            </p>
+        <p>
+            The <code>open()</code> function creates or opens a file for
+            use by subsequent file operations.
+        </p>
 
-            <pre><code>open(test.txt)</code></pre>
+        <pre><code>open(test.txt)</code></pre>
 
-            <div class="warning">
-                <strong>Warning:</strong>
-                Opening a file with an existing filename may overwrite the
-                existing file depending on the current implementation.
-                Be careful when using <code>open()</code>.
-            </div>
+        <div class="warning">
+            <strong>Warning:</strong>
+            Opening a file with an existing filename may overwrite the
+            existing file depending on the current implementation.
+            Be careful when using <code>open()</code>.
+        </div>
 
-            <p>
-                <code>open()</code> does not print output to the console.
-            </p>
+        <p>
+            <code>open()</code> does not print output to the console.
+        </p>
 
-            <!-- Write -->
-            <h3>Write</h3>
+        <!-- Write -->
+        <h3>Write</h3>
 
-            <p>
-                The <code>write()</code> function writes data to the currently
-                opened file.
-            </p>
+        <p>
+            The <code>write()</code> function writes data to the currently
+            opened file.
+        </p>
 
-            <pre><code>open(test.txt)
+        <pre><code>open(test.txt)
 
 write("Hello from Nyxium")</code></pre>
 
-            <p>
-                File I/O functionality is still being developed, so additional
-                file operations may be introduced in future versions.
-            </p>
-        </section>
+        <!-- Read -->
+        <h3>Read</h3>
 
-        <!-- Errors -->
-        <section id="errors">
-            <h2>Nyxium Errors</h2>
+        <p>
+            The <code>read()</code> function reads the contents of the
+            currently opened file.
+        </p>
 
-            <p>
-                Nyxium provides error messages when something goes wrong
-                during execution.
-            </p>
+        <pre><code>open(test.txt)
 
-            <!-- Module not found -->
-            <h3>Module not found</h3>
+read()</code></pre>
 
-            <p>
-                This error means that a module was used without first loading
-                it with <code>get</code>.
-            </p>
+        <!-- New directory -->
+        <h3>Newdir</h3>
 
-            <pre><code>Nyxium line 5: Wait module not found, try using `get wait`</code></pre>
+        <p>
+            <code>newdir</code> creates a new directory.
+        </p>
 
-            <p>
-                Fix the error by loading the module before using it.
-            </p>
+        <pre><code>newdir projects</code></pre>
 
-            <pre><code>get wait
+        <p>
+            The directory is created using the name supplied to the
+            command.
+        </p>
+    </section>
+
+    <!-- Discord -->
+    <section id="discords">
+        <h2>Discord Module</h2>
+
+        <p>
+            The <code>discord</code> module allows Nyxium programs to
+            interact with Discord bots.
+        </p>
+
+        <h3>Loading the module</h3>
+
+        <p>
+            Load the Discord module using <code>get</code>.
+        </p>
+
+        <pre><code>get discord</code></pre>
+
+        <h3>Bot token</h3>
+
+        <p>
+            Your Discord bot requires a token to connect to Discord.
+        </p>
+
+        <pre><code>client.token("token")</code></pre>
+
+        <div class="warning">
+            <strong>Warning:</strong>
+            Never publish your Discord bot token or commit it to a public
+            repository. A hardcoded token can be stolen and used to control
+            your bot. If a token is exposed, reset it immediately through
+            the Discord Developer Portal.
+        </div>
+        <div class="note">
+            <strong>Note:</strong>
+            This function can use a variable instead of a direct string
+        </div>
+
+        <h3>Slash commands</h3>
+
+        <p>
+            Discord slash commands can be created using
+            <code>client.slash()</code>.
+        </p>
+
+        <pre><code>client.slash("hello";"Says hello";"Hello from Nyxium!")</code></pre>
+
+        <p>
+            The arguments are the command name, its description, and the
+            message that should be sent when the command is used.
+        </p>
+
+        <h3>Syncing commands</h3>
+
+        <p>
+            Use <code>client.sync()</code> to synchronize your commands
+            with Discord.
+        </p>
+
+        <pre><code>client.sync()</code></pre>
+
+        <h3>Application commands</h3>
+
+        <p>
+            Nyxium also provides <code>client.applicationCommand()</code>
+            for defining Discord application commands.
+        </p>
+
+        <pre><code>client.applicationCommand("hello";"Says hello")</code></pre>
+
+        <p>
+            Application-command functionality is intended to provide
+            additional support for Discord's application command system.
+        </p>
+
+        <div class="note">
+            <strong>Note:</strong>
+            Discord functionality is still being developed. Command
+            syntax and available features may change in future versions.
+        </div>
+    </section>
+
+    <!-- Errors -->
+    <section id="errors">
+        <h2>Nyxium Errors</h2>
+
+        <p>
+            Nyxium provides error messages when something goes wrong
+            during execution.
+        </p>
+
+        <!-- Module not found -->
+        <h3>Module not found</h3>
+
+        <p>
+            This error means that a module was used without first loading
+            it with <code>get</code>.
+        </p>
+
+        <pre><code>Nyxium line 5: Wait module not found, try using `get wait`</code></pre>
+
+        <p>
+            Fix the error by loading the module before using it.
+        </p>
+
+        <pre><code>get wait
 
 wait(5)</code></pre>
 
-            <!-- File not found -->
-            <h3>File not found</h3>
+        <!-- File not found -->
+        <h3>File not found</h3>
 
-            <p>
-                This error usually means that Nyxium could not find the file
-                specified by the command.
-            </p>
+        <p>
+            This error usually means that Nyxium could not find the file
+            specified by the command.
+        </p>
 
-            <pre><code>Error: Nyxium file not found</code></pre>
+        <pre><code>Error: Nyxium file not found</code></pre>
 
-            <p>
-                Check the filename and make sure the file exists in the
-                expected location.
-            </p>
+        <p>
+            Check the filename and make sure the file exists in the
+            expected location.
+        </p>
 
-            <!-- Unknown command -->
-            <h3>Unknown command</h3>
+        <!-- Unknown command -->
+        <h3>Unknown command</h3>
 
-            <p>
-                An unknown-command error occurs when Nyxium encounters syntax
-                or a command that it does not recognise.
-            </p>
+        <p>
+            An unknown-command error occurs when Nyxium encounters syntax
+            or a command that it does not recognise.
+        </p>
 
-            <pre><code>Unknown command: Line 6</code></pre>
+        <pre><code>Unknown command: Line 6</code></pre>
 
-            <p>
-                Check the line reported by the interpreter and make sure the
-                command is spelled correctly.
-            </p>
+        <p>
+            Check the line reported by the interpreter and make sure the
+            command is spelled correctly.
+        </p>
 
-            <!-- Library disabled -->
-            <h3>Library disabled</h3>
+        <!-- Library disabled -->
+        <h3>Library disabled</h3>
 
-            <p>
-                This error occurs when <code>lose</code> is used on a module
-                that has already been disabled.
-            </p>
+        <p>
+            This error occurs when <code>lose</code> is used on a module
+            that has already been disabled.
+        </p>
 
-            <pre><code>Nyxium line 15: Math library already disabled!</code></pre>
+        <pre><code>Nyxium line 15: Math library already disabled!</code></pre>
 
-            <p>
-                Make sure the module is currently loaded before attempting to
-                disable it.
-            </p>
-        </section>
+        <p>
+            Make sure the module is currently loaded before attempting to
+            disable it.
+        </p>
+    </section>
 
-        <!-- Footer -->
-        <footer id="footer">
-            Nyxium | Nyx Coding
-        </footer>
+    <!-- Changelog -->
+    <section id="changelog">
+        <h2>Changelog</h2>
 
-    </main>
+        <h3>Version 1.3</h3>
 
-    <script>
-        const download = document.getElementById("download");
-        const toggle = document.getElementById("toggle");
-        const discord = document.getElementById("discord");
-        const footer = document.getElementById("footer");
+        <h4>File I/O</h4>
 
-        // Download Nyxium
-        download.addEventListener("click", () => {
-            const link = document.createElement("a");
+        <p>
+            Nyxium version 1.3 introduced File I/O features such as
+            <code>read()</code> and <code>write()</code>.
+        </p>
 
-            link.href = "nyxium/nyxium.exe";
-            link.download = "nyxium.exe";
+        <h4>Documentation</h4>
 
-            document.body.appendChild(link);
-            link.click();
-            link.remove();
+        <p>
+            The changelog section was added to the Nyxium documentation
+            in version 1.3.
+        </p>
 
-            alert("Downloading Nyxium.");
-        });
+        <h4>Input</h4>
 
-        // Toggle dark mode
-        toggle.addEventListener("click", () => {
-            document.body.classList.toggle("dark");
+        <p>
+            <code>input</code> was introduced in this version.
+        </p>
 
-            if (document.body.classList.contains("dark")) {
-                toggle.textContent = "☀️";
-            } else {
-                toggle.textContent = "🌙";
-            }
-        });
+        <h3>Version 1.27</h3>
 
-        // Open Discord
-        discord.addEventListener("click", () => {
-            window.open(
-                "https://discord.gg/7TY5SnmXU3",
-                "_blank",
-                "noopener,noreferrer"
-            );
-        });
+        <h4>Randint</h4>
 
-        // Hide footer
-        footer.addEventListener("click", () => {
-            footer.style.display = "none";
-        });
-    </script>
+        <p>
+            Nyxium introduced the <code>randint()</code> function within
+            the random module.
+        </p>
 
-</body>
-</html>
+        <h4>Wait</h4>
+
+        <p>
+            Nyxium introduced the <code>wait()</code> function within
+            the wait module.
+        </p>
+
+        <h3>Version 1.25</h3>
+
+        <h4>Math</h4>
+
+        <p>
+            Several mathematical functions were added to the
+            <code>math</code> module.
+        </p>
+
+        <h4>Add</h4>
+
+        <p>
+            The <code>add()</code> function was introduced.
+        </p>
+
+        <h4>Subtract</h4>
+
+        <p>
+            The <code>subtract()</code> function was introduced.
+        </p>
+
+        <h4>Multiply</h4>
+
+        <p>
+            The <code>multiply()</code> function was introduced.
+        </p>
+
+        <h4>Divide</h4>
+
+        <p>
+            The <code>divide()</code> function was introduced.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        Nyxium | Nyx Coding
+    </footer>
+
+</main>
+
+<script>
+    const download = document.getElementById("download");
+    const toggle = document.getElementById("toggle");
+    const discord = document.getElementById("discord");
+    const footer = document.getElementById("footer");
+
+    // Download Nyxium
+    download.addEventListener("click", () => {
+        const link = document.createElement("a");
+
+        link.href = "nyxium/nyxium.exe";
+        link.download = "nyxium.exe";
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        link.remove();
+
+        alert("Downloading Nyxium.");
+    });
+
+    // Toggle dark mode
+    toggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+            toggle.textContent = "☀️";
+            toggle.setAttribute("aria-label", "Toggle light mode");
+        } else {
+            toggle.textContent = "🌙";
+            toggle.setAttribute("aria-label", "Toggle dark mode");
+        }
+    });
+
+    // Open Discord
+    discord.addEventListener("click", () => {
+        window.open(
+            "https://discord.gg/7TY5SnmXU3",
+            "_blank",
+            "noopener,noreferrer"
+        );
+    });
+
+    // Hide footer
+    footer.addEventListener("click", () => {
+        footer.style.display = "none";
+    });
+</script>
+
+</body> </html>
