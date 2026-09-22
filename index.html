@@ -34,6 +34,10 @@
             Download 🌙
         </button>
 
+        <button class="extension" id="extension">
+            Extension VSC 🌙
+        </button>
+
         <button class="discord" id="discord">
             Discord 🌙
         </button>
@@ -743,6 +747,7 @@ wait(5)</code></pre>
     const download = document.getElementById("download");
     const toggle = document.getElementById("toggle");
     const discord = document.getElementById("discord");
+    const extension = document.getElementById("extension")
     const footer = document.getElementById("footer");
 
     // Download Nyxium
@@ -757,8 +762,19 @@ wait(5)</code></pre>
         link.click();
 
         link.remove();
+    });
+        // Download Nyxium
+    extension.addEventListener("click", () => {
+        const links = document.createElement("a");
 
-        alert("Downloading Nyxium.");
+        links.href = "extension/nyx-0.2.1.vsix";
+        links.download = "nyx-0.2.1.vsix";
+
+        document.body.appendChild(links);
+
+        links.click();
+
+        links.remove();
     });
 
     // Toggle dark mode
