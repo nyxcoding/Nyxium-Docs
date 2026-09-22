@@ -523,13 +523,13 @@ read()</code></pre>
 
         <pre><code>get discord</code></pre>
 
-        <h3>Bot token</h3>
+        <h3>Running</h3>
 
         <p>
-            Your Discord bot requires a token to connect to Discord.
+            Your Discord bot requires a tokethis run line to connect to Discord.
         </p>
 
-        <pre><code>client.token("token")</code></pre>
+        <pre><code>client.run("token")</code></pre>
 
         <div class="warning">
             <strong>Warning:</strong>
@@ -537,6 +537,11 @@ read()</code></pre>
             repository. A hardcoded token can be stolen and used to control
             your bot. If a token is exposed, reset it immediately through
             the Discord Developer Portal.
+        </div>
+        <div class="warning">
+            <strong>Warning:</strong>
+            Only available intent is: messageContent
+            It is accesible in the developer portal.
         </div>
         <div class="note">
             <strong>Note:</strong>
