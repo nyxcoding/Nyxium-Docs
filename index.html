@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 
-<html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Nyxium Documentation</title>
+    <title>Nyxium Documentation</title>
 
-<link rel="stylesheet" href="styles.css">
-
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -179,7 +181,7 @@ say(x)</code></pre>
         <pre><code>var x = 10
 
 if x == 10
-say("X is 10!")
+    say("X is 10!")
 end</code></pre>
 
         <p>
@@ -197,9 +199,9 @@ end</code></pre>
         <pre><code>var x = 5
 
 if x == 10
-say("X is 10!")
+    say("X is 10!")
 else
-say("X is not 10!")
+    say("X is not 10!")
 end</code></pre>
 
         <h4>Elsif</h4>
@@ -212,11 +214,11 @@ end</code></pre>
         <pre><code>var x = 5
 
 if x == 10
-say("X is 10!")
+    say("X is 10!")
 elsif x == 5
-say("X is 5!")
+    say("X is 5!")
 else
-say("X is something else!")
+    say("X is something else!")
 end</code></pre>
 
         <h4>Comparison operators</h4>
@@ -227,7 +229,6 @@ end</code></pre>
 
         <div class="operator-list">
             <code>==</code>
-            <code>!=</code>
             <code>&gt;</code>
             <code>&gt;=</code>
             <code>&lt;</code>
@@ -247,8 +248,7 @@ end</code></pre>
         </p>
 
         <pre><code>loop 5
-say("Nyxium")
-
+    say("Nyxium")
 end</code></pre>
 
         <p>
@@ -280,14 +280,11 @@ say("Hello!")</code></pre>
         </p>
 
         <pre><code>night hello {
-say("Hello!")
+    say("Hello!")
+}
 
-}</code></pre>
-
-        <p>
-            Functions allow reusable pieces of code to be grouped
-            together.
-        </p>
+hello()
+</code></pre>
 
         <div class="note">
             <strong>Note:</strong>
@@ -515,6 +512,12 @@ read()</code></pre>
             interact with Discord bots.
         </p>
 
+        <div class="warning">
+            <strong>Warning:</strong>
+            Discord functionality is still being developed. Syntax and
+            available features may change in future versions.
+        </div>
+
         <h3>Loading the module</h3>
 
         <p>
@@ -526,7 +529,8 @@ read()</code></pre>
         <h3>Running</h3>
 
         <p>
-            Your Discord bot requires a tokethis run line to connect to Discord.
+            Use <code>client.run()</code> to connect your bot to Discord.
+            The function requires your Discord bot token.
         </p>
 
         <pre><code>client.run("token")</code></pre>
@@ -534,20 +538,56 @@ read()</code></pre>
         <div class="warning">
             <strong>Warning:</strong>
             Never publish your Discord bot token or commit it to a public
-            repository. A hardcoded token can be stolen and used to control
-            your bot. If a token is exposed, reset it immediately through
-            the Discord Developer Portal.
-        </div>
-        <div class="warning">
-            <strong>Warning:</strong>
-            Only available intent is: messageContent
-            It is accesible in the developer portal.
-        </div>
-        <div class="note">
-            <strong>Note:</strong>
-            This function can use a variable instead of a direct string
+            repository. A hardcoded token can be stolen and used to
+            control your bot. If a token is exposed, reset it immediately
+            through the Discord Developer Portal.
         </div>
 
+        <div class="warning">
+            <strong>Warning:</strong>
+            The <code>messageContent</code> intent is currently required.
+            Enable it in the Discord Developer Portal.
+        </div>
+
+        <div class="note">
+            <strong>Note:</strong>
+            The token can also be stored in a variable.
+        </div>
+
+        <pre><code>var token = "your token"
+
+client.run(token)</code></pre>
+
+        <!-- Regular commands -->
+        <h3>Commands</h3>
+
+        <p>
+            Nyxium uses <code>client.command()</code> to create regular
+            Discord commands.
+        </p>
+
+        <pre><code>client.command("hello"; "Hello from Nyxium!")</code></pre>
+
+        <p>
+            When the command is registered, users can run it using the
+            bot's configured command prefix.
+        </p>
+
+        <h4>User mentions</h4>
+
+        <p>
+            The <code>{userid}</code> placeholder can be used to mention
+            the user who triggered the command.
+        </p>
+
+        <pre><code>client.command("hello"; "Hello {userid}!")</code></pre>
+
+        <p>
+            When a user runs the command, <code>{userid}</code> is replaced
+            with a Discord mention of that user.
+        </p>
+
+        <!-- Slash commands -->
         <h3>Slash commands</h3>
 
         <p>
@@ -555,35 +595,124 @@ read()</code></pre>
             <code>client.slash()</code>.
         </p>
 
-        <pre><code>client.slash("hello";"Says hello";"Hello from Nyxium!")</code></pre>
+        <pre><code>client.slash("hello"; "Says hello"; "Hello from Nyxium!")</code></pre>
 
         <p>
             The arguments are the command name, its description, and the
-            message that should be sent when the command is used.
+            response sent when the command is used.
         </p>
 
+        <h4>User mentions</h4>
+
+        <p>
+            Slash commands also support the <code>{userid}</code>
+            placeholder.
+        </p>
+
+        <pre><code>client.slash("hello"; "Says hello"; "Hello {userid}!")</code></pre>
+
+        <!-- Sync -->
         <h3>Syncing commands</h3>
 
         <p>
-            Use <code>client.sync()</code> to synchronize your commands
+            Use <code>client.sync()</code> to synchronize slash commands
             with Discord.
         </p>
 
         <pre><code>client.sync()</code></pre>
 
-        <h3>Application commands</h3>
+        <div class="note">
+            <strong>Note:</strong>
+            Slash commands may not appear until they have been synchronized.
+        </div>
+
+        <!-- Events -->
+        <h3>Events</h3>
 
         <p>
-            Nyxium also provides <code>client.command()</code>
-            for defining regular commands.
+            Nyxium can respond to Discord events using
+            <code>client.event()</code>.
         </p>
 
-        <pre><code>client.command("hello";"Says hello")</code></pre>
+        <p>
+            The function takes the event name, a channel ID, and the
+            response.
+        </p>
+
+        <pre><code>client.event("onReady"; "1551609425758916661"; "Bot is online!")</code></pre>
+
+        <h4>onReady</h4>
+
+        <p>
+            The <code>onReady</code> event runs when the bot has connected
+            to Discord. The response is sent to the specified channel.
+        </p>
+
+        <pre><code>client.event("onReady"; "1551609425758916661"; "Bot is online!")</code></pre>
+
+        <h4>memberJoin</h4>
+
+        <p>
+            The <code>memberJoin</code> event runs when a new member joins
+            the server. The response is sent directly to the member as a
+            direct message.
+        </p>
+
+        <pre><code>client.event("memberJoin"; "1551609425758916661"; "Welcome to the server!")</code></pre>
 
         <div class="note">
             <strong>Note:</strong>
-            Discord functionality is still being developed. Command
-            syntax and available features may change in future versions.
+            The channel ID is currently ignored for <code>memberJoin</code>,
+            since the response is sent directly to the joining member.
+        </div>
+
+        <h3>Channel IDs</h3>
+
+        <p>
+            Events that send messages to a channel require the channel's
+            Discord ID.
+        </p>
+
+        <pre><code>client.event("onReady"; "1551609425758916661"; "Hello all!")</code></pre>
+
+        <p>
+            Discord Developer Mode can be enabled to copy channel IDs.
+        </p>
+
+        <div class="warning">
+            <strong>Warning:</strong>
+            Make sure you provide a channel ID rather than a channel name.
+        </div>
+
+        <!-- Example -->
+        <h3>Example bot</h3>
+
+        <p>
+            The following example combines commands, slash commands,
+            events, and command synchronization.
+        </p>
+
+        <pre><code>get discord
+
+var token = "token"
+
+client.command("hello"; "Hello {userid}!")
+
+client.slash("test"; "A test command"; "Testing {userid}!")
+
+client.event("onReady"; "1551609425758916661"; "Bot is online!")
+
+client.event("memberJoin"; "1551609425758916661"; "Welcome to the server!")
+
+client.sync()
+
+client.run(token)</code></pre>
+
+        <div class="note">
+            <strong>Note:</strong>
+            Discord functionality is actively being developed. Additional
+            events, command features, and functionality may be added in
+            future versions.
         </div>
     </section>
 
@@ -747,7 +876,7 @@ wait(5)</code></pre>
     const download = document.getElementById("download");
     const toggle = document.getElementById("toggle");
     const discord = document.getElementById("discord");
-    const extension = document.getElementById("extension")
+    const extension = document.getElementById("extension");
     const footer = document.getElementById("footer");
 
     // Download Nyxium
@@ -763,7 +892,8 @@ wait(5)</code></pre>
 
         link.remove();
     });
-        // Download Nyxium
+
+    // Download Nyxium VS Code extension
     extension.addEventListener("click", () => {
         const links = document.createElement("a");
 
@@ -805,4 +935,5 @@ wait(5)</code></pre>
     });
 </script>
 
-</body> </html>
+</body>
+</html>
