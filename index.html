@@ -654,17 +654,13 @@ client.run(token)</code></pre>
 
         <p>
             The <code>memberJoin</code> event runs when a new member joins
-            the server. The response is sent directly to the member as a
-            direct message.
+            the server.
         </p>
 
         <pre><code>client.event("memberJoin"; "1551609425758916661"; "Welcome to the server!")</code></pre>
 
-        <div class="note">
-            <strong>Note:</strong>
-            The channel ID is currently ignored for <code>memberJoin</code>,
-            since the response is sent directly to the joining member.
-        </div>
+        <h3>Member</h3>
+        <p>Use <code>{member}</code> to mention the member</p>
 
         <h3>Channel IDs</h3>
 
